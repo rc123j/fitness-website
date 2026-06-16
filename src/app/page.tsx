@@ -10,6 +10,7 @@ import Testimonials from "../components/Testimonials";
 import Credentials from "../components/Credentials";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import LeafIcon from "../components/LeafIcon";
 
@@ -41,6 +42,7 @@ export default function Home() {
         <Testimonials />
         <Credentials />
         <FAQ />
+        <Contact />
         <CTA />
       </main>
       <Footer />

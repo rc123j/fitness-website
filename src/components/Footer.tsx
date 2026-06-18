@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Mail } from "lucide-react";
 
 export default function Footer() {
@@ -9,15 +10,12 @@ export default function Footer() {
         
         {/* Logo */}
         <div className="flex items-center gap-2.5 mb-10">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white border border-white/10">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2Z" />
-              <path d="M9 22v-4h4" />
-            </svg>
+          <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/10 shadow-sm shrink-0">
+            <Image src="/logo.png" alt="Bharti Fit Logo" fill sizes="40px" className="object-cover" />
           </div>
           <div className="flex flex-col text-left">
             <span className="font-display text-xl font-bold tracking-tight leading-none text-white">
-              THRIVE
+              BHARTI FIT
             </span>
             <span className="text-[9px] font-bold text-white/50 tracking-widest mt-0.5 uppercase">
               Fitness & Nutrition
@@ -73,17 +71,29 @@ export default function Footer() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-4.5 w-4.5"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><path d="m10 15 5-3-5-3v6z"/></svg>
           </a>
           <a 
-            href="mailto:info@thrive.com" 
+            href="mailto:info@bhartifit.com" 
             className="h-9 w-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/20 transition-all hover:translate-y-[-2px]"
           >
             <Mail className="h-4.5 w-4.5" />
           </a>
         </div>
 
-        {/* Copyright */}
-        <span className="text-[10px] text-white/30 font-bold tracking-widest uppercase">
-          &copy; {new Date().getFullYear()} THRIVE Fitness & Nutrition. All rights reserved.
-        </span>
+        {/* Copyright & Powered By */}
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-[10px] text-white/30 font-bold tracking-widest uppercase text-center">
+          <span>&copy; {new Date().getFullYear()} BHARTI FIT. All rights reserved.</span>
+          <span className="hidden sm:inline text-white/10">|</span>
+          <span>
+            Powered by{" "}
+            <a 
+              href="http://aaravinfotechs.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/50 hover:text-white underline underline-offset-4 decoration-white/25 hover:decoration-white transition-all"
+            >
+              Aaravinfotech
+            </a>
+          </span>
+        </div>
 
       </div>
     </footer>

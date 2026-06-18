@@ -2,7 +2,7 @@
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-28 bg-white border-t border-[#1A1A1A]/5 z-10">
+    <section id="faq" className="py-28 bg-white border-t border-[#1A1A1A]/12 z-10">
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl text-[#1a1a1a]">
@@ -31,7 +31,7 @@ export default function FAQ() {
           ].map((faq, idx) => (
             <div 
               key={idx}
-              className="rounded-3xl border border-[#1A1A1A]/6 bg-[#F9F7F3]/15 overflow-hidden transition-all duration-300 hover:border-black/10 hover:shadow-md"
+              className="rounded-3xl border border-[#1A1A1A]/14 bg-[#F9F7F3]/15 overflow-hidden transition-all duration-300 hover:border-black/20 hover:shadow-md"
             >
               <details className="group">
                 <summary className="flex items-center justify-between p-6 text-sm font-bold text-[#1A1A1A] cursor-pointer list-none select-none">
@@ -42,7 +42,7 @@ export default function FAQ() {
                     </svg>
                   </span>
                 </summary>
-                <div className="p-6 pt-0 text-xs sm:text-sm text-[#1A1A1A]/65 leading-relaxed font-semibold border-t border-[#1A1A1A]/5 bg-white">
+                <div className="p-6 pt-0 text-xs sm:text-sm text-[#1A1A1A]/65 leading-relaxed font-semibold border-t border-[#1A1A1A]/12 bg-white">
                   {faq.a}
                 </div>
               </details>

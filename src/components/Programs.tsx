@@ -5,7 +5,7 @@ import { BookOpen, Dumbbell, Activity, ShieldCheck, Sparkles, MessageSquare, Che
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-28 relative bg-[#F9F7F3] border-t border-[#1A1A1A]/5 z-10">
+    <section id="programs" className="py-28 relative bg-[#F9F7F3] border-t border-[#1A1A1A]/12 z-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         
         {/* Title */}

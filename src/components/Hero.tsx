@@ -37,10 +37,10 @@ export default function Hero() {
           {/* Small pill chip */}
           <motion.div 
             variants={fadeInUp}
-            className="inline-flex items-center gap-2 rounded-full bg-[#3F5E4A]/5 border border-[#3F5E4A]/10 px-4.5 py-2 text-[10px] font-bold uppercase tracking-widest text-[#3F5E4A] mb-8"
+            className="inline-flex items-center gap-2.5 rounded-full bg-[#3F5E4A]/5 border border-[#3F5E4A]/18 px-4.5 py-2 text-[10px] font-bold uppercase tracking-widest text-[#3F5E4A] mb-8"
           >
             <Award className="h-4 w-4 text-[#E58A65]" />
-            Fitness Coaching & Nutrition Expert
+            <span>Coaching by <span className="text-[#E58A65] font-black font-display">Rakesh Bharti</span> | Elite Fitness & Nutrition</span>
           </motion.div>
 
           {/* Headline */}
@@ -82,7 +82,7 @@ export default function Hero() {
             
             <button
               onClick={() => alert("Watch Video clicked!")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-[#1A1A1A]/10 bg-white/60 backdrop-blur-md px-9 py-5 text-xs font-bold uppercase tracking-widest text-[#1A1A1A] transition-all hover:bg-white hover:border-[#1A1A1A]/20 hover:translate-y-[-1px] active:scale-98 shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-[#1A1A1A]/18 bg-white/60 backdrop-blur-md px-9 py-5 text-xs font-bold uppercase tracking-widest text-[#1A1A1A] transition-all hover:bg-white hover:border-[#1A1A1A]/30 hover:translate-y-[-1px] active:scale-98 shadow-sm"
             >
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#E58A65] text-[#F9F7F3] shadow-sm animate-pulse">
                 <Play className="h-3 w-3 fill-current ml-0.5" />
@@ -94,7 +94,7 @@ export default function Hero() {
           {/* Social Proof */}
           <motion.div 
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-8 border-t border-[#1A1A1A]/8 max-w-lg"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-8 border-t border-[#1A1A1A]/15 max-w-lg"
           >
             {/* Avatar stack */}
             <div className="flex -space-x-3.5">
@@ -136,7 +136,7 @@ export default function Hero() {
           <div className="relative w-full max-w-[430px] aspect-[4/5] rounded-[48px] bg-[#E1DBD2] overflow-hidden border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
             <Image
               src="/hero_coach.jpeg"
-              alt="Thrive Professional Coach"
+              alt="Bharti Fit Professional Coach"
               fill
               sizes="(max-width: 1024px) 100vw, 430px"
               className="object-cover transition-transform duration-1000 group-hover:scale-104"
@@ -161,7 +161,7 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.5, type: "spring" }}
-            className="absolute top-12 right-[-25px] flex items-center gap-3.5 px-5 py-3 rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/5 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
+            className="absolute top-12 right-[-25px] flex items-center gap-3.5 px-5 py-3 rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/12 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
           >
             <div className="h-9 w-9 rounded-xl bg-[#E58A65]/10 flex items-center justify-center text-[#E58A65] shadow-sm">
               <Activity className="h-4.5 w-4.5" />
@@ -177,7 +177,7 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.6, type: "spring" }}
-            className="absolute bottom-32 left-[-30px] flex items-center gap-3.5 px-5 py-3 rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/5 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
+            className="absolute bottom-32 left-[-30px] flex items-center gap-3.5 px-5 py-3 rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/12 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
           >
             <div className="h-9 w-9 rounded-xl bg-[#3F5E4A]/10 flex items-center justify-center text-[#3F5E4A] shadow-sm">
               <Smile className="h-5 w-5" />

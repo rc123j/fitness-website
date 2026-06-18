@@ -15,7 +15,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AURA | Premium Fitness & Nutrition Coaching",
+  title: "BHARTI FIT | Premium Fitness & Nutrition Coaching",
   description: "Reclaim your health with bespoke 1-on-1 nutrition coaching, structured training, and elite accountability. Designed for high achievers.",
 };
 

@@ -48,7 +48,7 @@ export default function Transformations() {
   ];
 
   return (
-    <section id="results" className="py-28 relative bg-white border-t border-[#1A1A1A]/5 z-10 overflow-hidden">
+    <section id="results" className="py-28 relative bg-white border-t border-[#1A1A1A]/12 z-10 overflow-hidden">
 
       {/* Leaf Decorations */}
       <div className="absolute left-[-20px] top-[40%] opacity-40 pointer-events-none">
@@ -62,7 +62,7 @@ export default function Transformations() {
 
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-black/8 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#E58A65] mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-black/15 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#E58A65] mb-6 shadow-sm">
             <div className="h-1.5 w-1.5 rounded-full bg-[#E58A65] animate-pulse" />
             Real Results
           </div>
@@ -81,7 +81,7 @@ export default function Transformations() {
           {/* Left Nav Button */}
           <button
             onClick={() => scroll("left")}
-            className="hidden lg:flex shrink-0 h-11 w-11 items-center justify-center rounded-full bg-white border border-black/10 shadow-lg text-[#1A1A1A]/60 hover:bg-[#F9F7F3] hover:text-[#1A1A1A] hover:shadow-xl cursor-pointer transition-all active:scale-95 z-20"
+            className="hidden lg:flex shrink-0 h-11 w-11 items-center justify-center rounded-full bg-white border border-black/18 shadow-lg text-[#1A1A1A]/60 hover:bg-[#F9F7F3] hover:text-[#1A1A1A] hover:shadow-xl cursor-pointer transition-all active:scale-95 z-20"
             aria-label="Previous"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -95,7 +95,7 @@ export default function Transformations() {
             {clients.map((client, idx) => (
               <div
                 key={idx}
-                className="w-[255px] shrink-0 snap-start flex flex-col bg-white rounded-[28px] border border-black/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 transition-all duration-400 overflow-hidden group cursor-pointer"
+                className="w-[255px] shrink-0 snap-start flex flex-col bg-white rounded-[28px] border border-black/12 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 transition-all duration-400 overflow-hidden group cursor-pointer"
               >
                 {/* Before/After Split Image */}
                 <div className="relative h-[270px] overflow-hidden">
@@ -125,13 +125,13 @@ export default function Transformations() {
                   {/* Vertical Center Divider */}
                   <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center z-10 pointer-events-none">
                     <div className="absolute inset-y-0 w-[1.5px] bg-white/80" />
-                    <div className="relative h-7 w-7 rounded-full bg-white/90 shadow-md flex items-center justify-center border border-black/5 text-[8px] font-black text-[#1A1A1A]/50">
+                    <div className="relative h-7 w-7 rounded-full bg-white/90 shadow-md flex items-center justify-center border border-black/12 text-[8px] font-black text-[#1A1A1A]/50">
                       &lt;&gt;
                     </div>
                   </div>
 
                   {/* Top-Right KG Badge */}
-                  <div className="absolute top-3 right-3 z-20 bg-white/95 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-lg border border-black/[0.04] text-right">
+                  <div className="absolute top-3 right-3 z-20 bg-white/95 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-lg border border-black/10 text-right">
                     <span className="block text-[22px] font-black leading-none text-[#1A1A1A] tracking-tight">{client.kg}</span>
                     <span className="block text-[8px] font-black text-[#1A1A1A]/50 leading-none tracking-widest uppercase">{client.unit}</span>
                     <span className="block text-[7px] font-bold text-[#1A1A1A]/40 leading-none tracking-wider uppercase mt-0.5">{client.period}</span>
@@ -183,7 +183,7 @@ export default function Transformations() {
           {/* Right Nav Button */}
           <button
             onClick={() => scroll("right")}
-            className="hidden lg:flex shrink-0 h-11 w-11 items-center justify-center rounded-full bg-white border border-black/10 shadow-lg text-[#1A1A1A]/60 hover:bg-[#F9F7F3] hover:text-[#1A1A1A] hover:shadow-xl cursor-pointer transition-all active:scale-95 z-20"
+            className="hidden lg:flex shrink-0 h-11 w-11 items-center justify-center rounded-full bg-white border border-black/18 shadow-lg text-[#1A1A1A]/60 hover:bg-[#F9F7F3] hover:text-[#1A1A1A] hover:shadow-xl cursor-pointer transition-all active:scale-95 z-20"
             aria-label="Next"
           >
             <ChevronRight className="h-5 w-5" />

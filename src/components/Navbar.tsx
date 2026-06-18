@@ -1,26 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ArrowRight, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#1A1A1A]/5 bg-[#F9F7F3]/75 backdrop-blur-xl transition-all duration-300">
+    <header className="sticky top-0 z-50 w-full border-b border-[#1A1A1A]/12 bg-[#F9F7F3]/75 backdrop-blur-xl transition-all duration-300">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4.5 lg:px-8">
         
         {/* Logo */}
         <div className="flex items-center gap-3 cursor-pointer">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#3F5E4A] text-[#F9F7F3] shadow-md shadow-[#3F5E4A]/10 border border-white/20">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2Z" />
-              <path d="M9 22v-4h4" />
-            </svg>
+          <div className="relative h-11 w-11 flex items-center justify-center overflow-hidden rounded-2xl border border-[#1A1A1A]/12 bg-white/40 shadow-sm shrink-0">
+            <Image src="/logo.png" alt="Bharti Fit Logo" fill sizes="44px" className="object-cover" />
           </div>
           <div className="flex flex-col">
             <span className="font-display text-2xl font-black tracking-tight text-[#1A1A1A] leading-none">
-              THRIVE
+              BHARTI FIT
             </span>
             <span className="text-[9px] font-bold text-[#3F5E4A] tracking-[0.2em] mt-1.5 uppercase leading-none">
               Fitness & Nutrition
@@ -78,13 +76,10 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 bg-[#F9F7F3] p-6 flex flex-col md:hidden">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#3F5E4A] text-[#F9F7F3]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2Z" />
-                  <path d="M9 22v-4h4" />
-                </svg>
+              <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-[#1A1A1A]/12 bg-white/40 shadow-sm shrink-0">
+                <Image src="/logo.png" alt="Bharti Fit Logo" fill sizes="40px" className="object-cover" />
               </div>
-              <span className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">THRIVE</span>
+              <span className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">BHARTI FIT</span>
             </div>
             <button
               type="button"
@@ -109,7 +104,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#1A1A1A]/80 hover:text-[#3F5E4A] py-2 border-b border-[#1A1A1A]/5"
+                className="text-[#1A1A1A]/80 hover:text-[#3F5E4A] py-2 border-b border-[#1A1A1A]/12"
               >
                 {link.label}
               </a>

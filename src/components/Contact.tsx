@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 relative bg-[#F9F7F3] border-t border-[#1A1A1A]/5 z-10 overflow-hidden">
+    <section id="contact" className="py-32 relative bg-[#F9F7F3] border-t border-[#1A1A1A]/12 z-10 overflow-hidden">
 
       {/* Background Decorations */}
       <div className="absolute top-[-80px] right-[-80px] w-[450px] h-[450px] rounded-full bg-[#3F5E4A]/5 blur-[120px] pointer-events-none" />
@@ -68,16 +68,16 @@ export default function Contact() {
             {/* Contact Info Tiles */}
             <div className="flex flex-col gap-4 mb-10">
               {[
-                { icon: Mail, label: "Email Us", value: "coach@thrive.fit", href: "mailto:coach@thrive.fit" },
+                { icon: Mail, label: "Email Us", value: "rakesh@bhartifit.com", href: "mailto:rakesh@bhartifit.com" },
                 { icon: Phone, label: "Call / WhatsApp", value: "+91 98765 43210", href: "tel:+919876543210" },
-                { icon: Instagram, label: "Instagram DM", value: "@thrive.fitness", href: "https://instagram.com" }
+                { icon: Instagram, label: "Instagram DM", value: "@bhartifit.coaching", href: "https://instagram.com" }
               ].map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-black/[0.05] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group text-left"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-black/12 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group text-left"
                 >
                   <div className="h-11 w-11 rounded-2xl bg-[#3F5E4A]/8 text-[#3F5E4A] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                     <item.icon className="h-5 w-5" />
@@ -104,7 +104,7 @@ export default function Contact() {
 
           {/* Right Form Column */}
           <div className="relative">
-            <div className="bg-white rounded-[44px] border border-black/[0.05] shadow-[0_24px_80px_rgba(0,0,0,0.05)] p-8 sm:p-10">
+            <div className="bg-white rounded-[44px] border border-black/12 shadow-[0_24px_80px_rgba(0,0,0,0.05)] p-8 sm:p-10">
 
               {submitted ? (
                 <div className="flex flex-col items-center justify-center text-center py-16 gap-6">
@@ -123,7 +123,7 @@ export default function Contact() {
                     <p className="text-xs text-[#1A1A1A]/50 font-semibold">Fill in your details and we&apos;ll get back to you within 24 hours.</p>
                   </div>
 
-                  <div className="h-[1px] bg-black/[0.04]" />
+                  <div className="h-[1px] bg-black/10" />
 
                   {/* Name + Email row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -135,7 +135,7 @@ export default function Contact() {
                         placeholder="Your name"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full rounded-2xl border border-black/10 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
+                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
                       />
                     </div>
                     <div className="flex flex-col gap-1.5">
@@ -146,7 +146,7 @@ export default function Contact() {
                         placeholder="you@email.com"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full rounded-2xl border border-black/10 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
+                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
                       />
                     </div>
                   </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                       placeholder="+91 00000 00000"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full rounded-2xl border border-black/10 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
+                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
                     />
                   </div>
 
@@ -170,7 +170,7 @@ export default function Contact() {
                       required
                       value={form.goal}
                       onChange={(e) => setForm({ ...form, goal: e.target.value })}
-                      className="w-full rounded-2xl border border-black/10 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all appearance-none"
+                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all appearance-none"
                     >
                       <option value="" disabled>Select your main goal...</option>
                       <option value="fat-loss">Fat Loss</option>
@@ -189,7 +189,7 @@ export default function Contact() {
                       placeholder="Tell us a bit about your current situation..."
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full rounded-2xl border border-black/10 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all resize-none"
+                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all resize-none"
                     />
                   </div>
 

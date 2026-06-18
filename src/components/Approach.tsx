@@ -54,7 +54,7 @@ export default function Approach() {
   ];
 
   return (
-    <section id="approach" className="py-28 relative bg-[#F9F7F3] border-t border-[#1A1A1A]/5 z-10 overflow-hidden">
+    <section id="approach" className="py-28 relative bg-[#F9F7F3] border-t border-[#1A1A1A]/12 z-10 overflow-hidden">
       
       {/* Background Leaf Decorations */}
       <div className="absolute left-[-60px] top-20 opacity-20 pointer-events-none">
@@ -102,7 +102,7 @@ export default function Approach() {
             {steps.map((step) => (
               <div 
                 key={step.title}
-                className="group relative flex-1 min-h-[560px] rounded-[40px] bg-gradient-to-b from-white to-[#FCFBF8] border border-[#ECE7E1] shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.09)] transition-all duration-500 p-8 pt-14 pb-24 flex flex-col z-10"
+                className="group relative flex-1 min-h-[560px] rounded-[40px] bg-gradient-to-b from-white to-[#FCFBF8] border border-black/12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.09)] transition-all duration-500 p-8 pt-14 pb-24 flex flex-col z-10"
               >
                 
                 {/* Decorative Card Glow */}
@@ -144,7 +144,7 @@ export default function Approach() {
                       key={bullet} 
                       className="flex items-start text-[12px] text-[#1A1A1A]/75 font-semibold"
                     >
-                      <div className="h-4.5 w-4.5 rounded-full border border-black/10 flex items-center justify-center mr-3 shrink-0 mt-0.5">
+                      <div className="h-4.5 w-4.5 rounded-full border border-black/18 flex items-center justify-center mr-3 shrink-0 mt-0.5">
                         <Check className="h-3 w-3 text-[#3F5E4A] stroke-[3.5]" />
                       </div>
                       <span className="leading-snug">{bullet}</span>
@@ -158,7 +158,7 @@ export default function Approach() {
                 {/* Circle Arrow Action Button */}
                 <button 
                   type="button"
-                  className="absolute bottom-6 left-1/2 -translate-x-1/2 h-11 w-11 rounded-full bg-white shadow-md flex items-center justify-center text-[#1A1A1A]/60 border border-black/[0.04] hover:text-[#1A1A1A] hover:scale-105 transition-all z-10"
+                  className="absolute bottom-6 left-1/2 -translate-x-1/2 h-11 w-11 rounded-full bg-white shadow-md flex items-center justify-center text-[#1A1A1A]/60 border border-black/12 hover:text-[#1A1A1A] hover:scale-105 transition-all z-10"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </button>

@@ -56,7 +56,7 @@ export default function Struggling() {
   ];
 
   return (
-    <section id="about" className="py-32 relative bg-[#1A1A1A] border-y border-[#1A1A1A]/5 z-10 overflow-hidden">
+    <section id="about" className="py-32 relative bg-[#1A1A1A] border-y border-white/10 z-10 overflow-hidden">
       
       {/* Dynamic Ambient Background Glows inside Dark Section */}
       <div className="absolute top-[20%] left-[-150px] w-[500px] h-[500px] rounded-full bg-[#E58A65]/10 blur-[120px] pointer-events-none" />

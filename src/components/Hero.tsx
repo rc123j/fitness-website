@@ -135,7 +135,7 @@ export default function Hero() {
           {/* Main Visual Container */}
           <div className="relative w-full max-w-[430px] aspect-[4/5] rounded-[48px] bg-[#E1DBD2] overflow-hidden border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
             <Image
-              src="/fitness_coach_hero.png"
+              src="/hero_coach.jpeg"
               alt="Thrive Professional Coach"
               fill
               sizes="(max-width: 1024px) 100vw, 430px"

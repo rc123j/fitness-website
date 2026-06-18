@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, Star, CheckCircle, User } from "lucide-react";
 import LeafIcon from "./LeafIcon";
+import { motion } from "framer-motion";
 
 export default function Transformations() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -18,32 +19,27 @@ export default function Transformations() {
     {
       kg: "-18", unit: "KG", period: "In 3 Months",
       category: "Fat Loss", duration: "Lost in 12 Weeks",
-      before: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&q=80&w=200&h=400",
-      after:  "https://images.unsplash.com/photo-1605296867304-46d5465a25f1?auto=format&fit=crop&q=80&w=200&h=400"
+      image: "/transformation_1.png"
     },
     {
       kg: "-14", unit: "KG", period: "In 4 Months",
       category: "Fat Loss", duration: "Lost in 16 Weeks",
-      before: "https://images.unsplash.com/photo-1573879541250-58ae8b322b40?auto=format&fit=crop&q=80&w=200&h=400",
-      after:  "https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&q=80&w=200&h=400"
+      image: "/transformation_2.png"
     },
     {
       kg: "+7", unit: "KG", period: "In 4 Months",
       category: "Muscle Gain", duration: "Gained in 16 Weeks",
-      before: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=200&h=400",
-      after:  "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=200&h=400"
+      image: "/transformation_3.png"
     },
     {
       kg: "-12", unit: "KG", period: "In 5 Months",
       category: "Fat Loss", duration: "Lost in 20 Weeks",
-      before: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=200&h=400",
-      after:  "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=200&h=400"
+      image: "/transformation_4.png"
     },
     {
       kg: "-10", unit: "KG", period: "In 3 Months",
       category: "Fat Loss", duration: "Lost in 10 Weeks",
-      before: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=200&h=400",
-      after:  "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=200&h=400"
+      image: "/transformation_5.png"
     }
   ];
 
@@ -61,7 +57,13 @@ export default function Transformations() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
 
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <div className="inline-flex items-center gap-2 rounded-full bg-white border border-black/15 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#E58A65] mb-6 shadow-sm">
             <div className="h-1.5 w-1.5 rounded-full bg-[#E58A65] animate-pulse" />
             Real Results
@@ -73,7 +75,7 @@ export default function Transformations() {
           <p className="text-sm text-[#1A1A1A]/55 font-medium">
             Proven results from real clients who trusted the process and transformed their lives.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards Slider with aligned nav buttons */}
         <div className="relative flex items-center gap-4">
@@ -88,8 +90,12 @@ export default function Transformations() {
           </button>
 
           {/* Scrollable Cards Row */}
-          <div
+          <motion.div
             ref={scrollRef}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
             className="flex gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none py-3 flex-1"
           >
             {clients.map((client, idx) => (
@@ -103,10 +109,10 @@ export default function Transformations() {
                   {/* BEFORE half (left) */}
                   <div className="absolute inset-y-0 left-0 w-1/2 overflow-hidden">
                     <Image
-                      src={client.before}
+                      src={client.image}
                       fill
                       sizes="128px"
-                      className="object-cover object-center scale-105"
+                      className="object-cover object-left scale-100"
                       alt="Before"
                     />
                   </div>
@@ -114,10 +120,10 @@ export default function Transformations() {
                   {/* AFTER half (right) */}
                   <div className="absolute inset-y-0 right-0 w-1/2 overflow-hidden">
                     <Image
-                      src={client.after}
+                      src={client.image}
                       fill
                       sizes="128px"
-                      className="object-cover object-center scale-105"
+                      className="object-cover object-right scale-100"
                       alt="After"
                     />
                   </div>
@@ -178,7 +184,7 @@ export default function Transformations() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Right Nav Button */}
           <button
@@ -191,7 +197,13 @@ export default function Transformations() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 flex flex-col items-center gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 flex flex-col items-center gap-4"
+        >
           <a
             href="#contact"
             className="group relative inline-flex items-center justify-center rounded-full bg-[#3F5E4A] px-9 py-4 text-[11px] font-bold uppercase tracking-widest text-[#F9F7F3] shadow-[0_15px_40px_rgba(63,94,74,0.25)] transition-all hover:bg-[#2E4536] hover:-translate-y-0.5 active:scale-95 overflow-hidden"
@@ -204,7 +216,7 @@ export default function Transformations() {
             <CheckCircle className="h-3 w-3 text-[#3F5E4A]" />
             Real People. Real Results. Real Stories.
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

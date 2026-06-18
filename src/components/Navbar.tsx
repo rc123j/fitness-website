@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -74,54 +75,62 @@ export default function Navbar() {
       </header>
 
       {/* Mobile Menu Panel - Rendered outside of sticky header to resolve containing block bug */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-[#F9F7F3] p-6 flex flex-col md:hidden overflow-y-auto">
-          <div className="flex items-center justify-between mb-8 shrink-0">
-            <div className="flex items-center gap-2.5">
-              <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-[#1A1A1A]/12 bg-white/40 shadow-sm shrink-0">
-                <Image src="/logo.png" alt="Bharti Fit Logo" fill sizes="40px" className="object-cover" />
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 220 }}
+            className="fixed inset-0 z-[100] bg-[#F9F7F3] p-6 flex flex-col md:hidden overflow-y-auto"
+          >
+            <div className="flex items-center justify-between mb-8 shrink-0">
+              <div className="flex items-center gap-2.5">
+                <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-[#1A1A1A]/12 bg-white/40 shadow-sm shrink-0">
+                  <Image src="/logo.png" alt="Bharti Fit Logo" fill sizes="40px" className="object-cover" />
+                </div>
+                <span className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">BHARTI FIT</span>
               </div>
-              <span className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">BHARTI FIT</span>
-            </div>
-            <button
-              type="button"
-              className="rounded-md p-2 text-[#1A1A1A]"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-
-          <div className="flex flex-col gap-5 text-base font-semibold uppercase tracking-wider">
-            {[
-              { label: "Home", href: "#" },
-              { label: "About", href: "#about" },
-              { label: "Programs", href: "#programs" },
-              { label: "Results", href: "#results" },
-              { label: "Approach", href: "#approach" },
-              { label: "Reviews", href: "#reviews" },
-              { label: "FAQ", href: "#faq" }
-            ].map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
+              <button
+                type="button"
+                className="rounded-md p-2 text-[#1A1A1A]"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#1A1A1A]/80 hover:text-[#3F5E4A] py-2 border-b border-[#1A1A1A]/12"
               >
-                {link.label}
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-5 text-base font-semibold uppercase tracking-wider">
+              {[
+                { label: "Home", href: "#" },
+                { label: "About", href: "#about" },
+                { label: "Programs", href: "#programs" },
+                { label: "Results", href: "#results" },
+                { label: "Approach", href: "#approach" },
+                { label: "Reviews", href: "#reviews" },
+                { label: "FAQ", href: "#faq" }
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-[#1A1A1A]/80 hover:text-[#3F5E4A] py-2 border-b border-[#1A1A1A]/12"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-6 flex items-center justify-center rounded-full bg-[#3F5E4A] py-3.5 text-xs font-bold uppercase tracking-wider text-[#F9F7F3] shadow-md shrink-0"
+              >
+                Book Free Call
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-6 flex items-center justify-center rounded-full bg-[#3F5E4A] py-3.5 text-xs font-bold uppercase tracking-wider text-[#F9F7F3] shadow-md shrink-0"
-            >
-              Book Free Call
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

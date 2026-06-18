@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowRight, Check, Sprout, Dumbbell, MessageSquare } from "lucide-react";
 import LeafIcon from "./LeafIcon";
+import { motion } from "framer-motion";
 
 export default function Approach() {
   const steps = [
@@ -70,7 +71,13 @@ export default function Approach() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Description Column */}
-          <div className="lg:col-span-3 text-center lg:text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-3 text-center lg:text-left"
+          >
             <span className="inline-block text-[10px] font-black uppercase tracking-[0.2em] text-[#E58A65] mb-5 bg-[#E58A65]/5 border border-[#E58A65]/10 px-4.5 py-2.5 rounded-full">
               TRANSFORMATION FRAMEWORK
             </span>
@@ -90,7 +97,7 @@ export default function Approach() {
               Explore Programs
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Right Cards Column */}
           <div className="lg:col-span-9 flex flex-col md:flex-row gap-6 relative mt-12 lg:mt-0">
@@ -99,9 +106,13 @@ export default function Approach() {
             <div className="hidden lg:block absolute top-[220px] left-[30.5%] w-[5%] h-[2px] border-t border-dashed border-[#D9D1C8] z-0 pointer-events-none" />
             <div className="hidden lg:block absolute top-[220px] left-[64.5%] w-[5%] h-[2px] border-t border-dashed border-[#D9D1C8] z-0 pointer-events-none" />
 
-            {steps.map((step) => (
-              <div 
+            {steps.map((step, idx) => (
+              <motion.div 
                 key={step.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: idx * 0.15 }}
                 className="group relative flex-1 min-h-[560px] rounded-[40px] bg-gradient-to-b from-white to-[#FCFBF8] border border-black/12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.09)] transition-all duration-500 p-8 pt-14 pb-24 flex flex-col z-10"
               >
                 
@@ -163,7 +174,7 @@ export default function Approach() {
                   <ArrowRight className="h-4 w-4" />
                 </button>
 
-              </div>
+              </motion.div>
             ))}
 
           </div>

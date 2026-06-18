@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Award, Play, Star, ArrowRight, Activity, Smile } from "lucide-react";
+import { Award, Play, Star, ArrowRight, Smile } from "lucide-react";
 import LeafIcon from "./LeafIcon";
 
 export default function Hero() {
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { type: "spring" as const, stiffness: 70, damping: 15 }
     }
@@ -33,9 +33,9 @@ export default function Hero() {
       >
         {/* Hero Content Left */}
         <div className="lg:col-span-7 text-center lg:text-left">
-          
+
           {/* Small pill chip */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="inline-flex items-center gap-2.5 rounded-full bg-[#3F5E4A]/5 border border-[#3F5E4A]/18 px-4.5 py-2 text-[10px] font-bold uppercase tracking-widest text-[#3F5E4A] mb-8"
           >
@@ -44,7 +44,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 
+          <motion.h1
             variants={fadeInUp}
             className="font-display text-4xl font-extrabold tracking-tight text-[#1A1A1A] sm:text-6xl lg:text-[4.75rem] leading-[1.05] mb-8"
           >
@@ -59,7 +59,7 @@ export default function Hero() {
           </motion.h1>
 
           {/* Description */}
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
             className="text-base sm:text-[1.1rem] leading-relaxed text-[#1A1A1A]/65 max-w-xl mx-auto lg:mx-0 mb-10 font-medium"
           >
@@ -67,7 +67,7 @@ export default function Hero() {
           </motion.p>
 
           {/* Action Buttons */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
           >
@@ -79,7 +79,7 @@ export default function Hero() {
               Book Free Strategy Call
               <ArrowRight className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            
+
             <button
               onClick={() => alert("Watch Video clicked!")}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-[#1A1A1A]/18 bg-white/60 backdrop-blur-md px-9 py-5 text-xs font-bold uppercase tracking-widest text-[#1A1A1A] transition-all hover:bg-white hover:border-[#1A1A1A]/30 hover:translate-y-[-1px] active:scale-98 shadow-sm"
@@ -92,7 +92,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Social Proof */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 pt-8 border-t border-[#1A1A1A]/15 max-w-lg"
           >
@@ -123,71 +123,75 @@ export default function Hero() {
         </div>
 
         {/* Hero Visual Right */}
-        <div className="lg:col-span-5 relative mt-12 lg:mt-0 flex justify-center items-center">
-          
-          {/* Visual Leaf ornaments */}
-          <LeafIcon className="absolute top-[20px] left-[-35px] w-14 h-14 rotate-12 z-20" />
-          <LeafIcon className="absolute bottom-[30px] right-[-25px] w-12 h-12 -rotate-45 z-20" />
+        <div className="lg:col-span-5 mt-12 lg:mt-0 flex justify-center items-center px-4 sm:px-0">
 
-          {/* Custom Background Organic Plate */}
-          <div className="absolute inset-0 bg-radial from-[#3F5E4A]/15 to-transparent rounded-[50px] filter blur-2xl transform scale-110 pointer-events-none" />
+          {/* Relative wrapper for the main image and all its floating elements */}
+          <div className="relative w-full max-w-[430px]">
 
-          {/* Main Visual Container */}
-          <div className="relative w-full max-w-[430px] aspect-[4/5] rounded-[48px] bg-[#E1DBD2] overflow-hidden border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
-            <Image
-              src="/hero_coach.jpeg"
-              alt="Bharti Fit Professional Coach"
-              fill
-              sizes="(max-width: 1024px) 100vw, 430px"
-              className="object-cover transition-transform duration-1000 group-hover:scale-104"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent pointer-events-none" />
+            {/* Visual Leaf ornaments */}
+            <LeafIcon className="absolute top-[20px] left-[-15px] sm:left-[-35px] w-10 h-10 sm:w-14 sm:h-14 rotate-12 z-20" />
+            <LeafIcon className="absolute bottom-[30px] right-[-10px] sm:right-[-25px] w-8 h-8 sm:w-12 sm:h-12 -rotate-45 z-20" />
+
+            {/* Custom Background Organic Plate */}
+            <div className="absolute inset-0 bg-radial from-[#3F5E4A]/15 to-transparent rounded-[50px] filter blur-2xl transform scale-110 pointer-events-none" />
+
+            {/* Main Visual Container */}
+            <div className="relative w-full aspect-[4/5] rounded-[36px] sm:rounded-[48px] bg-[#E1DBD2] overflow-hidden border-6 sm:border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
+              <Image
+                src="/hero_coach.jpeg"
+                alt="Bharti Fit Professional Coach"
+                fill
+                sizes="(max-width: 1024px) 100vw, 430px"
+                className="object-cover transition-transform duration-1000 group-hover:scale-104"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-transparent pointer-events-none" />
+            </div>
+
+            {/* Overlay Bowl Image Bottom-Right */}
+            <div className="absolute bottom-[-15px] sm:bottom-[-25px] right-[-5px] sm:right-[-10px] w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] rounded-full border-4 sm:border-6 border-white overflow-hidden shadow-xl transform rotate-6 hover:rotate-12 transition-transform duration-500 cursor-pointer z-10">
+              <Image
+                src="/nutrition_bowl_hero.png"
+                alt="Nutrition Plan Meal"
+                fill
+                sizes="150px"
+                className="object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            {/* Floating Badge 1 (Top-Right) - Hidden on mobile to avoid covering the face */}
+            {/* <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, type: "spring" }}
+              className="absolute top-8 sm:top-12 right-[-10px] sm:right-[-25px] hidden sm:flex items-center gap-2 sm:gap-3.5 px-3.5 py-2 sm:px-5 sm:py-3 rounded-[18px] sm:rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/12 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
+            >
+              <div className="h-7 w-7 sm:h-9 sm:w-9 rounded-lg sm:rounded-xl bg-[#E58A65]/10 flex items-center justify-center text-[#E58A65] shadow-sm">
+                <Activity className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5" />
+              </div>
+              <div className="text-left leading-tight">
+                <span className="block text-sm sm:text-lg font-black text-[#1A1A1A] font-display">7+</span>
+                <span className="block text-[8px] sm:text-[9px] font-bold text-[#1A1A1A]/40 uppercase tracking-widest mt-0.5">Years Experience</span>
+              </div>
+            </motion.div> */}
+
+            {/* Floating Badge 2 (Middle-Left) */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.6, type: "spring" }}
+              className="absolute bottom-28 sm:bottom-32 left-[-15px] sm:left-[-30px] flex items-center gap-2 sm:gap-3.5 px-3.5 py-2 sm:px-5 sm:py-3 rounded-[18px] sm:rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/12 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
+            >
+              <div className="h-7 w-7 sm:h-9 sm:w-9 rounded-lg sm:rounded-xl bg-[#3F5E4A]/10 flex items-center justify-center text-[#3F5E4A] shadow-sm">
+                <Smile className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+              </div>
+              <div className="text-left leading-tight">
+                <span className="block text-sm sm:text-lg font-black text-[#1A1A1A] font-display">100%</span>
+                <span className="block text-[8px] sm:text-[9px] font-bold text-[#1A1A1A]/40 uppercase tracking-widest mt-0.5">Personalized Plans</span>
+              </div>
+            </motion.div>
+
           </div>
-
-          {/* Overlay Bowl Image Bottom-Right */}
-          <div className="absolute bottom-[-25px] right-[-10px] w-[150px] h-[150px] rounded-full border-6 border-white overflow-hidden shadow-xl transform rotate-6 hover:rotate-12 transition-transform duration-500 cursor-pointer z-10">
-            <Image
-              src="/nutrition_bowl_hero.png"
-              alt="Nutrition Plan Meal"
-              fill
-              sizes="150px"
-              className="object-cover hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-
-          {/* Floating Badge 1 (Top-Right) */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5, type: "spring" }}
-            className="absolute top-12 right-[-25px] flex items-center gap-3.5 px-5 py-3 rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/12 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
-          >
-            <div className="h-9 w-9 rounded-xl bg-[#E58A65]/10 flex items-center justify-center text-[#E58A65] shadow-sm">
-              <Activity className="h-4.5 w-4.5" />
-            </div>
-            <div className="text-left leading-tight">
-              <span className="block text-lg font-black text-[#1A1A1A] font-display">7+</span>
-              <span className="block text-[9px] font-bold text-[#1A1A1A]/40 uppercase tracking-widest mt-0.5">Years Experience</span>
-            </div>
-          </motion.div>
-
-          {/* Floating Badge 2 (Middle-Left) */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.6, type: "spring" }}
-            className="absolute bottom-32 left-[-30px] flex items-center gap-3.5 px-5 py-3 rounded-[24px] bg-white/95 backdrop-blur-md shadow-lg border border-black/12 hover:-translate-y-1 transition-transform duration-300 z-10 cursor-default"
-          >
-            <div className="h-9 w-9 rounded-xl bg-[#3F5E4A]/10 flex items-center justify-center text-[#3F5E4A] shadow-sm">
-              <Smile className="h-5 w-5" />
-            </div>
-            <div className="text-left leading-tight">
-              <span className="block text-lg font-black text-[#1A1A1A] font-display">100%</span>
-              <span className="block text-[9px] font-bold text-[#1A1A1A]/40 uppercase tracking-widest mt-0.5">Personalized Plans</span>
-            </div>
-          </motion.div>
-          
         </div>
       </motion.div>
     </section>

@@ -1,9 +1,23 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Heart, Users, Calendar, ShieldCheck, ArrowRight, Check } from "lucide-react";
 
 export default function Struggling() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null);
+  const [userToggled, setUserToggled] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const cards = [
     {
       step: "01",
@@ -55,6 +69,24 @@ export default function Struggling() {
     }
   ];
 
+  useEffect(() => {
+    if (!isMobile || userToggled) return;
+    const interval = setInterval(() => {
+      setActiveCardIndex((prev) => {
+        if (prev === null) return 0;
+        if (prev === cards.length - 1) return null;
+        return prev + 1;
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isMobile, userToggled, cards.length]);
+
+  const handleCardClick = (idx: number) => {
+    if (!isMobile) return;
+    setUserToggled(true);
+    setActiveCardIndex((prev) => (prev === idx ? null : idx));
+  };
+
   return (
     <section id="about" className="py-32 relative bg-[#1A1A1A] border-y border-white/10 z-10 overflow-hidden">
       
@@ -81,99 +113,109 @@ export default function Struggling() {
             </span> with?
           </h2>
           <p className="mt-8 text-sm sm:text-base text-white/50 leading-relaxed font-semibold max-w-lg mx-auto">
-            Hover over each roadblock to see the exact blueprint we use to solve it.
+            {isMobile 
+              ? "Tap on each roadblock to see the exact blueprint we use to solve it." 
+              : "Hover over each roadblock to see the exact blueprint we use to solve it."}
           </p>
         </div>
 
         {/* Dynamic Bento Cards Grid with Glassmorphic styling */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {cards.map((card, idx) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: idx * 0.1 }}
-              className={`group relative min-h-[380px] rounded-[44px] bg-white/[0.03] border border-white/10 shadow-lg shadow-black/[0.02] backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-2xl hover:shadow-black/50 ${card.tilt} cursor-pointer flex flex-col p-8`}
-            >
-              {/* Decorative Subtle Grid Mesh Card Background */}
-              <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none opacity-40" />
-              
-              {/* Accent Gradient Corner Glow */}
-              <div className={`absolute inset-0 bg-radial-gradient bg-gradient-to-br ${card.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-
-              {/* CARD FRONT: The Struggle (default state) */}
-              <div className="flex flex-col h-full z-10 transition-all duration-500 group-hover:opacity-0 group-hover:pointer-events-none group-hover:translate-y-[-10px]">
+          {cards.map((card, idx) => {
+            const isCardFlipped = activeCardIndex === idx;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: idx * 0.1 }}
+                onClick={() => handleCardClick(idx)}
+                className={`group relative min-h-[380px] rounded-[44px] bg-white/[0.03] border border-white/10 shadow-lg shadow-black/[0.02] backdrop-blur-md overflow-hidden transition-all duration-300 cursor-pointer flex flex-col p-8 ${
+                  isCardFlipped
+                    ? `border-white/20 bg-white/[0.05] shadow-2xl shadow-black/50 scale-101 ${idx % 2 === 0 ? "-rotate-1" : "rotate-1"}`
+                    : `lg:hover:border-white/20 lg:hover:bg-white/[0.05] lg:hover:shadow-2xl lg:hover:shadow-black/50 ${card.tilt}`
+                }`}
+              >
+                {/* Decorative Subtle Grid Mesh Card Background */}
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none opacity-40" />
                 
-                {/* Step / Index */}
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-[10px] font-black tracking-widest text-white/30 font-mono uppercase">
-                    Roadblock // {card.step}
-                  </span>
-                </div>
+                {/* Accent Gradient Corner Glow */}
+                <div className={`absolute inset-0 bg-radial-gradient bg-gradient-to-br ${card.accent} transition-opacity duration-300 pointer-events-none ${isCardFlipped ? "opacity-100" : "opacity-0 lg:group-hover:opacity-100"}`} />
 
-                {/* Styled Double Circle Icon */}
-                <div className="relative mb-8 self-start">
-                  <div className="absolute inset-[-4px] rounded-2xl border border-dashed border-white/10 group-hover:rotate-90 transition-transform duration-700" />
-                  <div 
-                    className={`h-13 w-13 rounded-2xl flex items-center justify-center ${card.bg}`}
-                    style={{ color: card.color }}
-                  >
-                    <card.icon className="h-6 w-6 stroke-[2]" />
-                  </div>
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="text-xl font-bold mb-4 font-display text-white tracking-tight group-hover:text-[#E58A65] transition-colors duration-300">
-                  {card.title}
-                </h3>
-                <p className="text-xs sm:text-[13px] text-white/60 leading-relaxed font-semibold">
-                  {card.desc}
-                </p>
-
-                {/* Interactive Swipe Indicator */}
-                <div className="mt-auto pt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#E58A65] group-hover:text-white transition-colors duration-300">
-                  <span>See How We Fix It</span>
-                  <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                </div>
-
-              </div>
-
-              {/* CARD BACK: The Solution (revealed on hover) */}
-              <div className="absolute inset-8 flex flex-col justify-between z-25 opacity-0 pointer-events-none translate-y-[20px] group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 transition-all duration-500 delay-75">
-                
-                <div>
-                  {/* Solved Title */}
-                  <div className="flex items-center gap-2.5 mb-6">
-                    <div 
-                      className="h-7 w-7 rounded-lg flex items-center justify-center text-[#F9F7F3]"
-                      style={{ backgroundColor: card.color }}
-                    >
-                      <Check className="h-4 w-4 stroke-[3]" />
-                    </div>
-                    <span className="text-[9px] font-black uppercase tracking-[0.2em]" style={{ color: card.color }}>
-                      The Solution
+                {/* CARD FRONT: The Struggle (default state) */}
+                <div className={`flex flex-col h-full z-10 transition-all duration-300 ${isCardFlipped ? "opacity-0 pointer-events-none translate-y-[-10px]" : "lg:group-hover:opacity-0 lg:group-hover:pointer-events-none lg:group-hover:translate-y-[-10px]"}`}>
+                  
+                  {/* Step / Index */}
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[10px] font-black tracking-widest text-white/30 font-mono uppercase">
+                      Roadblock // {card.step}
                     </span>
                   </div>
 
-                  <h4 className="text-lg font-black font-display text-white mb-3 leading-snug">
-                    {card.solution}
-                  </h4>
-                  <p className="text-xs sm:text-[12.5px] text-white/80 leading-relaxed font-semibold">
-                    {card.solDesc}
+                  {/* Styled Double Circle Icon */}
+                  <div className="relative mb-8 self-start">
+                    <div className={`absolute inset-[-4px] rounded-2xl border border-dashed border-white/10 transition-transform duration-350 ${isCardFlipped ? "rotate-90" : "lg:group-hover:rotate-90"}`} />
+                    <div 
+                      className={`h-13 w-13 rounded-2xl flex items-center justify-center ${card.bg}`}
+                      style={{ color: card.color }}
+                    >
+                      <card.icon className="h-6 w-6 stroke-[2]" />
+                    </div>
+                  </div>
+
+                  {/* Title & Description */}
+                  <h3 className={`text-xl font-bold mb-4 font-display text-white tracking-tight transition-colors duration-300 ${isCardFlipped ? "text-[#E58A65]" : "lg:group-hover:text-[#E58A65]"}`}>
+                    {card.title}
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-white/60 leading-relaxed font-semibold">
+                    {card.desc}
                   </p>
+
+                  {/* Interactive Swipe Indicator */}
+                  <div className={`mt-auto pt-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest transition-colors duration-300 ${isCardFlipped ? "text-white" : "text-[#E58A65] lg:group-hover:text-white"}`}>
+                    <span>{isMobile ? "Tap to see solution" : "See How We Fix It"}</span>
+                    <ArrowRight className={`h-3 w-3 transition-transform ${isCardFlipped ? "translate-x-1" : "lg:group-hover:translate-x-1"}`} />
+                  </div>
+
                 </div>
 
-                {/* Action Link indicator */}
-                <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-white/40">
-                  <span>Customized for you</span>
-                  <span className="text-[14px] font-mono font-bold" style={{ color: card.color }}>{card.step}</span>
+                {/* CARD BACK: The Solution (revealed on hover/flip) */}
+                <div className={`absolute inset-8 flex flex-col justify-between z-25 transition-all duration-300 delay-50 ${isCardFlipped ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-[20px] lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:translate-y-0"}`}>
+                  
+                  <div>
+                    {/* Solved Title */}
+                    <div className="flex items-center gap-2.5 mb-6">
+                      <div 
+                        className="h-7 w-7 rounded-lg flex items-center justify-center text-[#F9F7F3]"
+                        style={{ backgroundColor: card.color }}
+                      >
+                        <Check className="h-4 w-4 stroke-[3]" />
+                      </div>
+                      <span className="text-[9px] font-black uppercase tracking-[0.2em]" style={{ color: card.color }}>
+                        The Solution
+                      </span>
+                    </div>
+
+                    <h4 className="text-lg font-black font-display text-white mb-3 leading-snug">
+                      {card.solution}
+                    </h4>
+                    <p className="text-xs sm:text-[12.5px] text-white/80 leading-relaxed font-semibold">
+                      {card.solDesc}
+                    </p>
+                  </div>
+
+                  {/* Action Link indicator */}
+                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-white/40">
+                    <span>Customized for you</span>
+                    <span className="text-[14px] font-mono font-bold" style={{ color: card.color }}>{card.step}</span>
+                  </div>
+
                 </div>
 
-              </div>
-
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Bottom Tagline */}

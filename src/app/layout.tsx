@@ -28,8 +28,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${outfit.variable} ${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans bg-cream text-charcoal">
+      <body className="min-h-full flex flex-col font-sans bg-cream text-charcoal" suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -11,11 +11,11 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex items-center gap-2.5 mb-10">
           <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/10 shadow-sm shrink-0">
-            <Image src="/logo.png" alt="Bharti Fit Logo" fill sizes="40px" className="object-cover" />
+            <Image src="/logo.png" alt="fitwithdeveloper Logo" fill sizes="40px" className="object-cover" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="font-display text-xl font-bold tracking-tight leading-none text-white">
-              BHARTI FIT
+            <span className="font-display text-lg sm:text-xl font-bold tracking-tight leading-none text-white">
+              fitwithdeveloper
             </span>
             <span className="text-[9px] font-bold text-white/50 tracking-widest mt-0.5 uppercase">
               Fitness & Nutrition
@@ -71,7 +71,7 @@ export default function Footer() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-4.5 w-4.5"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><path d="m10 15 5-3-5-3v6z"/></svg>
           </a>
           <a 
-            href="mailto:info@bhartifit.com" 
+            href="mailto:contact@fitwithdeveloper.com" 
             className="h-9 w-9 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/20 transition-all hover:translate-y-[-2px]"
           >
             <Mail className="h-4.5 w-4.5" />
@@ -80,7 +80,7 @@ export default function Footer() {
 
         {/* Copyright & Powered By */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-[10px] text-white/30 font-bold tracking-widest uppercase text-center">
-          <span>&copy; {new Date().getFullYear()} BHARTI FIT. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} fitwithdeveloper. All rights reserved.</span>
           <span className="hidden sm:inline text-white/10">|</span>
           <span>
             Powered by{" "}

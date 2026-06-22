@@ -68,9 +68,9 @@ export default function Contact() {
             {/* Contact Info Tiles */}
             <div className="flex flex-col gap-4 mb-10">
               {[
-                { icon: Mail, label: "Email Us", value: "rakesh@bhartifit.com", href: "mailto:rakesh@bhartifit.com" },
+                { icon: Mail, label: "Email Us", value: "contact@fitwithdeveloper.com", href: "mailto:contact@fitwithdeveloper.com" },
                 { icon: Phone, label: "Call / WhatsApp", value: "+91 98765 43210", href: "tel:+919876543210" },
-                { icon: Instagram, label: "Instagram DM", value: "@bhartifit.coaching", href: "https://instagram.com" }
+                { icon: Instagram, label: "Instagram DM", value: "@fitwithdeveloper", href: "https://instagram.com" }
               ].map((item) => (
                 <a
                   key={item.label}

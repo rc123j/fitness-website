@@ -48,10 +48,10 @@ export default function Hero() {
             variants={fadeInUp}
             className="font-display text-4xl font-extrabold tracking-tight text-[#1A1A1A] sm:text-6xl lg:text-[4.75rem] leading-[1.05] mb-8"
           >
-            Personal Coaching.<br />
-            Smarter Nutrition.<br />
+            Train Smart.<br />
+            Eat Right.<br />
             <span className="text-[#E58A65] relative inline-block">
-              Real Results.
+              Transform Forever.
               <svg className="absolute bottom-[-14px] left-0 w-full h-[12px] text-[#3F5E4A]/15" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M0,5 Q50,10 100,5" stroke="currentColor" strokeWidth="5" fill="none" strokeLinecap="round" />
               </svg>
@@ -139,7 +139,7 @@ export default function Hero() {
             <div className="relative w-full aspect-[4/5] rounded-[36px] sm:rounded-[48px] bg-[#E1DBD2] overflow-hidden border-6 sm:border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
               <Image
                 src="/hero_coach.jpeg"
-                alt="Bharti Fit Professional Coach"
+                alt="fitwithdeveloper Coach Rakesh Bharti"
                 fill
                 sizes="(max-width: 1024px) 100vw, 430px"
                 className="object-cover transition-transform duration-1000 group-hover:scale-104"

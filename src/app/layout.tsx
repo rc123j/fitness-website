@@ -15,8 +15,25 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "BHARTI FIT | Premium Fitness & Nutrition Coaching",
-  description: "Reclaim your health with bespoke 1-on-1 nutrition coaching, structured training, and elite accountability. Designed for high achievers.",
+  metadataBase: new URL("https://fitwithdeveloper.com"),
+  title: "fitwithdeveloper | Train Smart. Eat Right. Transform Forever.",
+  description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at fitwithdeveloper.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "fitwithdeveloper | Train Smart. Eat Right. Transform Forever.",
+    description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at fitwithdeveloper.",
+    url: "https://fitwithdeveloper.com",
+    siteName: "fitwithdeveloper",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "fitwithdeveloper | Train Smart. Eat Right. Transform Forever.",
+    description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at fitwithdeveloper.",
+  },
 };
 
 export default function RootLayout({

@@ -16,23 +16,23 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fitwithdeveloper.com"),
-  title: "fitwithdeveloper | Train Smart. Eat Right. Transform Forever.",
-  description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at fitwithdeveloper.",
+  title: "Fit with Developer | Train Smart. Eat Right. Transform Forever.",
+  description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at Fit with Developer.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "fitwithdeveloper | Train Smart. Eat Right. Transform Forever.",
-    description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at fitwithdeveloper.",
+    title: "Fit with Developer | Train Smart. Eat Right. Transform Forever.",
+    description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at Fit with Developer.",
     url: "https://fitwithdeveloper.com",
-    siteName: "fitwithdeveloper",
+    siteName: "Fit with Developer",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "fitwithdeveloper | Train Smart. Eat Right. Transform Forever.",
-    description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at fitwithdeveloper.",
+    title: "Fit with Developer | Train Smart. Eat Right. Transform Forever.",
+    description: "Train Smart. Eat Right. Transform Forever. Get premium 1-on-1 online fitness coaching, personalized nutrition plans, and elite accountability from Rakesh Bharti at Fit with Developer.",
   },
 };
 

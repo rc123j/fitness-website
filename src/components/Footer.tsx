@@ -11,11 +11,11 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex items-center gap-2.5 mb-10">
           <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/10 shadow-sm shrink-0">
-            <Image src="/logo.png" alt="fitwithdeveloper Logo" fill sizes="40px" className="object-cover" />
+            <Image src="/logo.png" alt="Fit with Developer Logo" fill sizes="40px" className="object-cover" />
           </div>
           <div className="flex flex-col text-left">
             <span className="font-display text-lg sm:text-xl font-bold tracking-tight leading-none text-white">
-              fitwithdeveloper
+              Fit with Developer
             </span>
             <span className="text-[9px] font-bold text-white/50 tracking-widest mt-0.5 uppercase">
               Fitness & Nutrition
@@ -80,7 +80,7 @@ export default function Footer() {
 
         {/* Copyright & Powered By */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-[10px] text-white/30 font-bold tracking-widest uppercase text-center">
-          <span>&copy; {new Date().getFullYear()} fitwithdeveloper. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Fit with Developer. All rights reserved.</span>
           <span className="hidden sm:inline text-white/10">|</span>
           <span>
             Powered by{" "}

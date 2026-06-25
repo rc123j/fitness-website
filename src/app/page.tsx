@@ -8,6 +8,7 @@ import Transformations from "../components/Transformations";
 import Programs from "../components/Programs";
 import Testimonials from "../components/Testimonials";
 import Credentials from "../components/Credentials";
+import Certifications from "../components/Certifications";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
 import Contact from "../components/Contact";
@@ -41,6 +42,7 @@ export default function Home() {
         <Programs />
         <Testimonials />
         <Credentials />
+        <Certifications />
         <FAQ />
         <Contact />
         <CTA />

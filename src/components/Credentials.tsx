@@ -78,16 +78,16 @@ export default function Credentials() {
       bg: "bg-[#3F5E4A]/10"
     },
     {
-      value: 4,
+      value: 6,
       suffix: "+",
       label: "Certifications",
-      sublabel: "NASM · ISSN · ACE · PN",
+      sublabel: "Elite Scientific Specialties",
       icon: Award,
       color: "text-[#E58A65]",
       bg: "bg-[#E58A65]/10"
     },
     {
-      value: 49,
+      value: 4.9,
       suffix: "/5",
       label: "Avg. Rating",
       sublabel: "Verified Client Reviews",

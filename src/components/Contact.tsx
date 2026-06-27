@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Mail, Phone, Send, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Mail, Phone, Send, CheckCircle2, ChevronDown } from "lucide-react";
 import LeafIcon from "./LeafIcon";
 
 function Instagram(props: React.ComponentProps<"svg">) {
@@ -199,20 +199,25 @@ export default function Contact() {
                   {/* Goal */}
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[10px] font-black uppercase tracking-widest text-[#1A1A1A]/50">Primary Goal</label>
-                    <select
-                      required
-                      value={form.goal}
-                      disabled={loading}
-                      onChange={(e) => setForm({ ...form, goal: e.target.value })}
-                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all appearance-none disabled:opacity-60"
-                    >
-                      <option value="" disabled>Select your main goal...</option>
-                      <option value="fat-loss">Fat Loss</option>
-                      <option value="muscle-gain">Muscle Gain</option>
-                      <option value="body-recomp">Body Recomposition</option>
-                      <option value="nutrition">Nutrition & Diet Coaching</option>
-                      <option value="lifestyle">General Fitness & Lifestyle</option>
-                    </select>
+                    <div className="relative w-full">
+                      <select
+                        required
+                        value={form.goal}
+                        disabled={loading}
+                        onChange={(e) => setForm({ ...form, goal: e.target.value })}
+                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] pl-4 pr-10 py-3.5 text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all appearance-none disabled:opacity-60"
+                      >
+                        <option value="" disabled>Select your main goal...</option>
+                        <option value="fat-loss">Fat Loss</option>
+                        <option value="muscle-gain">Muscle Gain</option>
+                        <option value="body-recomp">Body Recomposition</option>
+                        <option value="nutrition">Nutrition & Diet Coaching</option>
+                        <option value="lifestyle">General Fitness & Lifestyle</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#1A1A1A]/40">
+                        <ChevronDown className="h-4 w-4" />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Message */}

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import {
   Users,
   Dumbbell,
@@ -10,6 +11,8 @@ import {
   Sprout,
   Activity,
   Award,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 interface CertificationItem {
@@ -24,6 +27,9 @@ interface CertificationItem {
 }
 
 export default function Certifications() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
   const certifications: CertificationItem[] = [
     {
       title: "Special Population Workshop",
@@ -104,6 +110,43 @@ export default function Certifications() {
     },
   ];
 
+  // Auto-scrolling logic (right-to-left marquee imitation)
+  useEffect(() => {
+    if (isHovered) return;
+
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const el = scrollRef.current;
+        el.scrollLeft += 1;
+
+        // Loop seamlessly when reaching half of the duplicated scrollWidth
+        const maxScroll = el.scrollWidth / 2;
+        if (el.scrollLeft >= maxScroll) {
+          el.scrollLeft = 0;
+        }
+      }
+    }, 25); // very smooth rate
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  // Next / Prev button handler
+  const handleScroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const el = scrollRef.current;
+      const cardWidth = 350 + 24; // Card width + gap
+      const targetScroll =
+        direction === "left"
+          ? el.scrollLeft - cardWidth
+          : el.scrollLeft + cardWidth;
+
+      el.scrollTo({
+        left: targetScroll,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const CertCard = ({ cert }: { cert: CertificationItem }) => (
     <div
       className="group relative flex flex-col justify-between rounded-[28px] bg-white/[0.02] border border-white/5 p-5 backdrop-blur-md overflow-hidden hover:bg-white/[0.045] hover:border-white/10 hover:-translate-y-2 transition-all duration-500 shadow-[0_14px_36px_rgba(0,0,0,0.25)] w-[290px] sm:w-[350px] flex-shrink-0"
@@ -132,7 +175,7 @@ export default function Certifications() {
       </div>
 
       {/* Description */}
-      <p className="text-[11.5px] text-white/45 font-semibold leading-relaxed mb-5 group-hover:text-white/65 transition-colors duration-300 flex-1 whitespace-normal">
+      <p className="text-[11.5px] text-white/45 font-semibold leading-relaxed mb-5 group-hover:text-white/65 transition-colors duration-300 flex-1 whitespace-normal text-left">
         {cert.description}
       </p>
 
@@ -160,23 +203,14 @@ export default function Certifications() {
       id="certifications"
       className="relative py-28 bg-[#121212] overflow-hidden border-t border-white/5 z-10"
     >
-      {/* CSS marquee stylesheet injected inline */}
+      {/* Hide scrollbar styles in custom CSS rule */}
       <style>{`
-        @keyframes scrollRtl {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
         }
-        .animate-marquee-rtl {
-          display: flex;
-          width: max-content;
-          animation: scrollRtl 45s linear infinite;
-        }
-        .animate-marquee-wrapper:hover .animate-marquee-rtl {
-          animation-play-state: paused;
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
 
@@ -188,48 +222,53 @@ export default function Certifications() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.008)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.008)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          {/* <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-[#E58A65] mb-3 bg-[#E58A65]/5 border border-[#E58A65]/10 px-5 py-2.5 rounded-full"
-          >
+          {/* <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-[#E58A65] mb-3 bg-[#E58A65]/5 border border-[#E58A65]/10 px-5 py-2.5 rounded-full">
             Elite Scientific Standards
-          </motion.span> */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-4xl sm:text-[46px] text-white font-medium leading-tight mb-5"
-          >
-            Professional{" "}
-            <span className="text-[#E58A65] italic font-serif">Certifications</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm text-white/50 leading-relaxed font-semibold max-w-xl mx-auto"
-          >
+          </span> */}
+          <h2 className="font-serif text-4xl sm:text-[46px] text-white font-medium leading-tight mb-5">
+            Professional <span className="text-[#E58A65] italic font-serif">Certifications</span>
+          </h2>
+          <p className="text-sm text-white/50 leading-relaxed font-semibold max-w-xl mx-auto">
             A solid foundation built on clinical science, anatomical precision, and safety. Every
             program is backed by accredited, globally-recognized expertise.
-          </motion.p>
+          </p>
         </div>
       </div>
 
       {/* Infinite Auto-sliding Carousel Frame */}
-      <div className="animate-marquee-wrapper relative w-full overflow-hidden py-6">
+      <div
+        className="group/carousel relative w-full py-6"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* Elegant fade-out gradient overlays at borders */}
-        <div className="absolute inset-y-0 left-0 w-12 sm:w-40 bg-gradient-to-r from-[#121212] via-[#121212]/70 to-transparent z-20 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-12 sm:w-40 bg-gradient-to-l from-[#121212] via-[#121212]/70 to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-12 sm:w-40 bg-gradient-to-r from-[#121212] via-[#121212]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-12 sm:w-40 bg-gradient-to-l from-[#121212] via-[#121212]/80 to-transparent z-20 pointer-events-none" />
 
-        {/* Double list track for perfect loop */}
-        <div className="animate-marquee-rtl flex gap-6">
+        {/* Floating Controls on Left and Right Sides */}
+        <button
+          onClick={() => handleScroll("left")}
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center h-12 w-12 rounded-full border border-white/10 bg-[#121212]/60 backdrop-blur-md text-white/60 hover:text-[#E58A65] hover:border-[#E58A65]/40 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl opacity-0 group-hover/carousel:opacity-100"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+        <button
+          onClick={() => handleScroll("right")}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center h-12 w-12 rounded-full border border-white/10 bg-[#121212]/60 backdrop-blur-md text-white/60 hover:text-[#E58A65] hover:border-[#E58A65]/40 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl opacity-0 group-hover/carousel:opacity-100"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+
+        {/* Scrollable Track - removed scroll-smooth to prevent pixel auto-scroll lag conflict */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto no-scrollbar px-8 sm:px-24"
+        >
           {/* First loop */}
           {certifications.map((cert, idx) => (
             <CertCard key={`first-${idx}`} cert={cert} />

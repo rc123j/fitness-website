@@ -80,7 +80,7 @@ export default function Hero() {
               <ArrowRight className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
 
-            <button
+            {/* <button
               onClick={() => alert("Watch Video clicked!")}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-[#1A1A1A]/18 bg-white/60 backdrop-blur-md px-9 py-5 text-xs font-bold uppercase tracking-widest text-[#1A1A1A] transition-all hover:bg-white hover:border-[#1A1A1A]/30 hover:translate-y-[-1px] active:scale-98 shadow-sm"
             >
@@ -88,7 +88,7 @@ export default function Hero() {
                 <Play className="h-3 w-3 fill-current ml-0.5" />
               </div>
               Watch Video
-            </button>
+            </button> */}
           </motion.div>
 
           {/* Social Proof */}
@@ -139,7 +139,7 @@ export default function Hero() {
             <div className="relative w-full aspect-[4/5] rounded-[36px] sm:rounded-[48px] bg-[#E1DBD2] overflow-hidden border-6 sm:border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
               <Image
                 src="/hero_coach.jpeg"
-                alt="Fit with Developer Coach Rakesh Bharti"
+                alt="Fit With Developer Coach Rakesh Bharti"
                 fill
                 sizes="(max-width: 1024px) 100vw, 430px"
                 className="object-cover transition-transform duration-1000 group-hover:scale-104"

@@ -39,13 +39,15 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; 
       const progress = Math.min((timestamp - startTime) / duration, 1);
       // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * target));
+      setCount(eased * target);
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   }, [started, target, duration]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  const formattedCount = target % 1 !== 0 ? count.toFixed(1) : Math.floor(count);
+
+  return <span ref={ref}>{formattedCount}{suffix}</span>;
 }
 
 export default function Credentials() {

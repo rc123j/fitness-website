@@ -27,11 +27,35 @@ function Instagram(props: React.ComponentProps<"svg">) {
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "", goal: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "Failed to submit. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("An unexpected network error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -68,7 +92,7 @@ export default function Contact() {
             {/* Contact Info Tiles */}
             <div className="flex flex-col gap-4 mb-10">
               {[
-                { icon: Mail, label: "Email Us", value: "[EMAIL_ADDRESS]", href: "mailto:[EMAIL_ADDRESS]" },
+                { icon: Mail, label: "Email Us", value: "support@fitwithdeveloper.com", href: "mailto:support@fitwithdeveloper.com" },
                 { icon: Phone, label: "Call / WhatsApp", value: "+91 9960003179", href: "tel:+919960003179" },
                 { icon: Instagram, label: "Instagram DM", value: "@fit_with_developer", href: "https://www.instagram.com/fit_with_developer/" }
               ].map((item) => (
@@ -125,6 +149,12 @@ export default function Contact() {
 
                   <div className="h-[1px] bg-black/10" />
 
+                  {error && (
+                    <div className="text-xs font-bold text-red-600 bg-red-50 border border-red-200/50 p-4.5 rounded-2xl">
+                      {error}
+                    </div>
+                  )}
+
                   {/* Name + Email row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
@@ -134,8 +164,9 @@ export default function Contact() {
                         type="text"
                         placeholder="Your name"
                         value={form.name}
+                        disabled={loading}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
+                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all disabled:opacity-60"
                       />
                     </div>
                     <div className="flex flex-col gap-1.5">
@@ -145,8 +176,9 @@ export default function Contact() {
                         type="email"
                         placeholder="you@email.com"
                         value={form.email}
+                        disabled={loading}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
+                        className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all disabled:opacity-60"
                       />
                     </div>
                   </div>
@@ -158,8 +190,9 @@ export default function Contact() {
                       type="tel"
                       placeholder="+91 00000 00000"
                       value={form.phone}
+                      disabled={loading}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all"
+                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all disabled:opacity-60"
                     />
                   </div>
 
@@ -169,8 +202,9 @@ export default function Contact() {
                     <select
                       required
                       value={form.goal}
+                      disabled={loading}
                       onChange={(e) => setForm({ ...form, goal: e.target.value })}
-                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all appearance-none"
+                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all appearance-none disabled:opacity-60"
                     >
                       <option value="" disabled>Select your main goal...</option>
                       <option value="fat-loss">Fat Loss</option>
@@ -188,18 +222,20 @@ export default function Contact() {
                       rows={3}
                       placeholder="Tell us a bit about your current situation..."
                       value={form.message}
+                      disabled={loading}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all resize-none"
+                      className="w-full rounded-2xl border border-black/16 bg-[#F9F7F3] px-4 py-3.5 text-sm font-semibold text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#3F5E4A]/50 focus:ring-2 focus:ring-[#3F5E4A]/10 transition-all resize-none disabled:opacity-60"
                     />
                   </div>
 
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="group relative w-full flex items-center justify-center gap-2.5 rounded-2xl bg-[#3F5E4A] py-4 text-xs font-bold uppercase tracking-widest text-[#F9F7F3] shadow-[0_12px_30px_rgba(63,94,74,0.25)] hover:bg-[#2E4536] hover:-translate-y-0.5 active:scale-98 transition-all duration-300 overflow-hidden"
+                    disabled={loading}
+                    className="group relative w-full flex items-center justify-center gap-2.5 rounded-2xl bg-[#3F5E4A] py-4 text-xs font-bold uppercase tracking-widest text-[#F9F7F3] shadow-[0_12px_30px_rgba(63,94,74,0.25)] hover:bg-[#2E4536] hover:-translate-y-0.5 active:scale-98 transition-all duration-300 overflow-hidden disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <div className="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-20deg] translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-1000 ease-out" />
-                    Book My Free Strategy Call
+                    {loading ? "Sending Lead..." : "Book My Free Strategy Call"}
                     <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </button>
 

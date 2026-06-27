@@ -16,14 +16,14 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer">
             <div className="relative h-11 w-11 flex items-center justify-center overflow-hidden rounded-2xl border border-[#1A1A1A]/12 bg-white/40 shadow-sm shrink-0">
-              <Image src="/logo.png" alt="Fit with Developer Logo" fill sizes="44px" className="object-cover" />
+              <Image src="/icons/website-logo.png" alt="Fit With Developer Logo" fill sizes="44px" className="object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-display text-lg sm:text-xl font-black tracking-tight text-[#1A1A1A] leading-none">
-                Fit with Developer
+                Fit With Developer
               </span>
-              <span className="text-[9px] font-bold text-[#3F5E4A] tracking-[0.2em] mt-1.5 uppercase leading-none">
-                Fitness & Nutrition
+              <span className="text-[8px] font-bold text-[#3F5E4A] tracking-[0.05em] mt-1.5 uppercase leading-none">
+                Train Smart. Eat Right. Transform Forever.
               </span>
             </div>
           </div>
@@ -87,9 +87,9 @@ export default function Navbar() {
             <div className="flex items-center justify-between mb-8 shrink-0">
               <div className="flex items-center gap-2.5">
                 <div className="relative h-10 w-10 flex items-center justify-center overflow-hidden rounded-xl border border-[#1A1A1A]/12 bg-white/40 shadow-sm shrink-0">
-                  <Image src="/logo.png" alt="Fit with Developer Logo" fill sizes="40px" className="object-cover" />
+                  <Image src="/icons/website-logo.png" alt="Fit With Developer Logo" fill sizes="40px" className="object-cover" />
                 </div>
-                <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#1A1A1A]">Fit with Developer</span>
+                <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-[#1A1A1A]">Fit With Developer</span>
               </div>
               <button
                 type="button"

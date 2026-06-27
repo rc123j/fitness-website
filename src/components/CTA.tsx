@@ -7,10 +7,10 @@ export default function CTA() {
   return (
     <section id="contact" className="py-28 relative bg-[#F9F7F3] z-10">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        
+
         {/* Card Frame */}
         <div className="relative rounded-[48px] bg-[#3F5E4A] text-white p-8 sm:p-16 overflow-hidden shadow-2xl border-6 border-white flex flex-col items-center text-center">
-          
+
           {/* Visual Leaf decorations */}
           <LeafIcon className="absolute top-[20px] left-[-30px] w-20 h-20 text-white/5 rotate-45" />
           <LeafIcon className="absolute bottom-[20px] right-[-30px] w-24 h-24 text-white/5 -rotate-12" />
@@ -25,7 +25,7 @@ export default function CTA() {
             <p className="text-sm sm:text-base text-white/80 font-medium mb-10 max-w-md mx-auto">
               Book your free strategy call and let&apos;s create your personalized plan for success.
             </p>
-            
+
             <a
               href="https://calendly.com"
               target="_blank"
@@ -34,7 +34,7 @@ export default function CTA() {
             >
               {/* Visual Shine Effect */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-20deg] translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-1000 ease-out" />
-              
+
               Book Free Strategy Call
               <ArrowRight className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>

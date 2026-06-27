@@ -40,7 +40,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2.5 rounded-full bg-[#3F5E4A]/5 border border-[#3F5E4A]/18 px-4.5 py-2 text-[10px] font-bold uppercase tracking-widest text-[#3F5E4A] mb-8"
           >
             <Award className="h-4 w-4 text-[#E58A65]" />
-            <span>Coaching by <span className="text-[#E58A65] font-black font-display">Rakesh Bharti</span> | Elite Fitness & Nutrition</span>
+            <span>Coaching by <span className="text-[#E58A65] font-black font-display">Rakesh Bharati</span> | Elite Fitness & Nutrition</span>
           </motion.div>
 
           {/* Headline */}
@@ -139,7 +139,7 @@ export default function Hero() {
             <div className="relative w-full aspect-[4/5] rounded-[36px] sm:rounded-[48px] bg-[#E1DBD2] overflow-hidden border-6 sm:border-8 border-white shadow-2xl hover:scale-101 transition-transform duration-500 group">
               <Image
                 src="/hero_coach.jpeg"
-                alt="Fit With Developer Coach Rakesh Bharti"
+                alt="Fit With Developer Coach Rakesh Bharati"
                 fill
                 sizes="(max-width: 1024px) 100vw, 430px"
                 className="object-cover transition-transform duration-1000 group-hover:scale-104"

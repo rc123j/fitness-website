@@ -183,14 +183,14 @@ export default function Certifications() {
       {/* Ambient glows */}
       <div className="absolute top-[-120px] right-[-100px] w-[500px] h-[500px] rounded-full bg-[#E58A65]/6 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-120px] left-[-100px] w-[500px] h-[500px] rounded-full bg-[#3F5E4A]/8 blur-[120px] pointer-events-none" />
-      
+
       {/* Grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.008)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.008)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span
+          {/* <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -198,7 +198,7 @@ export default function Certifications() {
             className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-[#E58A65] mb-3 bg-[#E58A65]/5 border border-[#E58A65]/10 px-5 py-2.5 rounded-full"
           >
             Elite Scientific Standards
-          </motion.span>
+          </motion.span> */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -227,7 +227,7 @@ export default function Certifications() {
         {/* Elegant fade-out gradient overlays at borders */}
         <div className="absolute inset-y-0 left-0 w-12 sm:w-40 bg-gradient-to-r from-[#121212] via-[#121212]/70 to-transparent z-20 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-12 sm:w-40 bg-gradient-to-l from-[#121212] via-[#121212]/70 to-transparent z-20 pointer-events-none" />
-        
+
         {/* Double list track for perfect loop */}
         <div className="animate-marquee-rtl flex gap-6">
           {/* First loop */}

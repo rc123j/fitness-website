@@ -5,7 +5,7 @@ import LeafIcon from "./LeafIcon";
 
 export default function CTA() {
   return (
-    <section id="contact" className="py-28 relative bg-[#F9F7F3] z-10">
+    <section id="cta" className="py-28 relative bg-[#F9F7F3] z-10">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
 
         {/* Card Frame */}
@@ -27,9 +27,7 @@ export default function CTA() {
             </p>
 
             <a
-              href="https://calendly.com"
-              target="_blank"
-              rel="noreferrer"
+              href="#contact"
               className="group relative inline-flex items-center justify-center rounded-full bg-[#E58A65] px-10 py-5 text-xs font-bold uppercase tracking-widest text-white shadow-xl shadow-black/15 transition-all hover:bg-[#d47854] hover:scale-102 active:scale-98 overflow-hidden"
             >
               {/* Visual Shine Effect */}

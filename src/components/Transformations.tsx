@@ -57,7 +57,7 @@ export default function Transformations() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
 
         {/* Section Heading */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -197,21 +197,21 @@ export default function Transformations() {
         </div>
 
         {/* CTA */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 flex flex-col items-center gap-4"
         >
-          <a
+          {/* <a
             href="#contact"
             className="group relative inline-flex items-center justify-center rounded-full bg-[#3F5E4A] px-9 py-4 text-[11px] font-bold uppercase tracking-widest text-[#F9F7F3] shadow-[0_15px_40px_rgba(63,94,74,0.25)] transition-all hover:bg-[#2E4536] hover:-translate-y-0.5 active:scale-95 overflow-hidden"
           >
             <div className="absolute inset-0 w-1/2 h-full bg-white/10 skew-x-[-20deg] translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-1000 ease-out" />
             See More Transformations
             <ArrowRight className="ml-2.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          </a> */}
           <div className="flex items-center gap-1.5 text-[10px] text-[#1A1A1A]/40 font-semibold">
             <CheckCircle className="h-3 w-3 text-[#3F5E4A]" />
             Real People. Real Results. Real Stories.

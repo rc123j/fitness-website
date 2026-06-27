@@ -118,7 +118,7 @@ export default function Credentials() {
           </span>
           <h2 className="font-serif text-3xl sm:text-[40px] text-white font-medium leading-tight max-w-2xl mx-auto">
             Coach <span className="text-[#E58A65] font-black italic relative inline-block">
-              Rakesh Bharti
+              Rakesh Bharati
               <svg className="absolute bottom-[-6px] left-0 w-full h-[6px] text-[#E58A65]/20" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M0,5 Q50,10 100,5" stroke="currentColor" strokeWidth="6" fill="none" strokeLinecap="round" />
               </svg>
